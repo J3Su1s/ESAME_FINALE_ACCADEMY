@@ -15,4 +15,7 @@ public interface SalaService {
     Double calcolaIncassoSala(Long id);
     void SvuotaSala(Long id);
     void aggiungiUnPostoPrenotato(Long id);
+
+    public Long salaPostiPrenotati(Long id);
+    public Long salaPostiDisponibili(Long id);
 }

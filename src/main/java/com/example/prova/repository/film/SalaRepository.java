@@ -35,4 +35,13 @@ public interface SalaRepository extends JpaRepository<Sala, Long> {
             "where s.sala_id = :id", nativeQuery = true)
     Double calcolaIncassoSala(@Param("id") Long id);
 
+
+    @Query(value = "select posti_prenotati from euris.sala s " +
+            "where s.sala_id = :id", nativeQuery = true)
+    Long findPostiPrenotatiSalaById(@Param("id") Long id);
+
+    @Query(value = "select posti from euris.sala s " +
+            "where s.sala_id = :id", nativeQuery = true)
+    Long findPostiInSalaById(@Param("id") Long id);
+
 }

@@ -63,4 +63,13 @@ public class SalaServiceImpl implements SalaService {
     public void aggiungiUnPostoPrenotato(Long id) {
         salaRepository.aggiungiUnPostoPrenotato(id);
     }
+    @Override
+    public Long salaPostiPrenotati(Long id) {
+        return salaRepository.findPostiPrenotatiSalaById(id);
+    }
+
+    @Override
+    public Long salaPostiDisponibili(Long id) {
+        return salaRepository.findPostiInSalaById(id);
+    }
 }

@@ -15,6 +15,5 @@ public interface BigliettoService {
 
     public Boolean deleteAll();
 
-    public Long salaPostiPrenotati(Long id);
-    public Long salaPostiDisponibili(Long id);
+
 }

@@ -43,7 +43,7 @@ public class Biglietto implements Model {
     @Column(name="intestatarioId")
     private Long intestatarioId;
 
-    @Column(name = "proiezionePrenotataId")
+    @Column(name = "filmPrenotatoId")
     private Long filmId;
 
     @Column(name = "sala_id", insertable = false, updatable = false)

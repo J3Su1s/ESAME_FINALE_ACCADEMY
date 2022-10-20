@@ -52,13 +52,5 @@ public class BigliettoServiceImpl implements BigliettoService {
         bigliettoRepository.deleteAll();
         return Boolean.TRUE;
     }
-    @Override
-    public Long salaPostiPrenotati(Long id) {
-        return bigliettoRepository.findPostiPrenotatiSalaById(id);
-    }
 
-    @Override
-    public Long salaPostiDisponibili(Long id) {
-        return bigliettoRepository.findPostiInSalaById(id);
-    }
 }
