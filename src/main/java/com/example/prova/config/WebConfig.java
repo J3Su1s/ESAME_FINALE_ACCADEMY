@@ -1,4 +1,4 @@
-package it.euris.academy.aca_esame.config;
+package com.example.prova.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

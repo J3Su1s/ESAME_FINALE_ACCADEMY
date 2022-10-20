@@ -1,4 +1,4 @@
-package it.euris.academy.aca_esame.config;
+package com.example.prova.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.prova.cinema.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.prova.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

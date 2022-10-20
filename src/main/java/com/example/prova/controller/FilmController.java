@@ -15,32 +15,32 @@ public class FilmController {
     @Autowired
     FilmService filmService;
 
-    @GetMapping("/v1")
+    @GetMapping
     public List<FilmDto> getAll(){
         return filmService.getAll();
     }
 
-    @GetMapping("/v1/{id}")
+    @GetMapping("{id}")
     public FilmDto getById(@PathVariable("id") Long id) {
         return filmService.get(id);
     }
 
-    @GetMapping("/v1/calcolaPercentualeAffluenzaPerGenere")
+    @GetMapping("/calcolaPercentualeAffluenzaPerGenere")
     public List<Double> calcolaPercentualeAffluenzaPerGenere(){
         return filmService.calcolaPercentualeAffluenzaPerGenere();
     };
 
-    @GetMapping("/v1/calcolaTitoloConMaggiorBigliettiVenduti")
+    @GetMapping("/calcolaTitoloConMaggiorBigliettiVenduti")
     public String calcolaTitoloConMaggiorBigliettiVenduti(){
         return filmService.calcolaTitoloConMaggiorBigliettiVenduti();
     }
 
-    @GetMapping("/v1/calcolaTitoloConMinorBigliettiVenduti")
+    @GetMapping("/calcolaTitoloConMinorBigliettiVenduti")
     public String calcolaTitoloConMinorBigliettiVenduti(){
         return filmService.calcolaTitoloConMinorBigliettiVenduti();
     }
 
-    @DeleteMapping("/v1/{id}")
+    @DeleteMapping("/{id}")
     public Boolean delete(@PathVariable("id") Long id) {
         return filmService.delete(id);
     }
@@ -50,12 +50,12 @@ public class FilmController {
         return filmService.update(filmDto);
     }
 
-    @PatchMapping("/v1")
+    @PatchMapping
     public FilmDto patch(@RequestBody FilmDto filmDto) {
         return filmService.update(filmDto);
     }
 
-    @PostMapping("/v1")
+    @PostMapping
     public FilmDto insert(@RequestBody FilmDto filmDto) {
         return filmService.insert(filmDto);
     }

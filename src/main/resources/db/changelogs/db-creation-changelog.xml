@@ -14,7 +14,7 @@
             <column name="prezzo" type="DOUBLE"/>
             <column name="cancellato" type="BOOLEAN"/>
             <column name="intestatario_id" type="BIGINT"/>
-            <column name="proiezione_prenotata_id" type="BIGINT"/>
+            <column name="film_prenotato_id" type="BIGINT"/>
             <column name="sala_id" type="BIGINT"/>
             <column name="film_id" type="BIGINT"/>
             <column name="spettatore_id" type="BIGINT">

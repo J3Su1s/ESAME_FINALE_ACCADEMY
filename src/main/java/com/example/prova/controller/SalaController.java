@@ -15,28 +15,28 @@ public class SalaController {
     @Autowired
     SalaService salaService;
 
-    @GetMapping("/v1")
+    @GetMapping
     public List<SalaDto> getAll(){
         return salaService.getAll();
     }
 
-    @GetMapping("/v1/{id}")
+    @GetMapping("/{id}")
     public SalaDto getById(@PathVariable("id") Long id) {
         return salaService.get(id);
     }
 
-    @GetMapping("/v1/{id}/calcolaIncassoSala")
+    @GetMapping("/{id}/calcolaIncassoSala")
     public Double calcolaIncassoSala(@PathVariable("id") Long id){
         return salaService.calcolaIncassoSala(id);
     }
 
-    @PutMapping("/v1/{id}/svuotaSala")
+    @PutMapping("/{id}/svuotaSala")
     public void svuotaSala(@PathVariable("id") Long id) {salaService.SvuotaSala(id);}
 
-    @PutMapping("/v1/{id}/aumentaDiUnoIPostiPrenotatiInSala")
+    @PutMapping("/{id}/aumentaDiUnoIPostiPrenotatiInSala")
     public void aumentaDiUnoIPostiPrenotatiInSala(@PathVariable("id") Long id) {salaService.SvuotaSala(id);}
 
-    @DeleteMapping("/v1/{id}")
+    @DeleteMapping("/{id}")
     public Boolean delete(@PathVariable("id") Long id) {
         return salaService.delete(id);
     }
@@ -46,12 +46,12 @@ public class SalaController {
         return salaService.update(salaDto);
     }
 
-    @PatchMapping("/v1")
+    @PatchMapping
     public SalaDto patch(@RequestBody SalaDto salaDto) {
         return salaService.update(salaDto);
     }
 
-    @PostMapping("/v1")
+    @PostMapping
     public SalaDto insert(@RequestBody SalaDto salaDto) {
         return salaService.insert(salaDto);
     }

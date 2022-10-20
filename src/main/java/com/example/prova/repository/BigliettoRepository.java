@@ -12,14 +12,6 @@ public interface BigliettoRepository extends JpaRepository<Biglietto, Long> {
     Biglietto findBigliettoById(@Param("id") Long id);
     List<Biglietto> findBigliettoByPostoAssegnato(@Param("postoAssegnato") String postoAssegnato);
 
-    @Query(value = "select posti_prenotati from euris.sala s " +
-                    "where s.sala_id = :id", nativeQuery = true)
-    Long findPostiPrenotatiSalaById(@Param("id") Long id);
-
-    @Query(value = "select posti from euris.sala s " +
-            "where s.sala_id = :id", nativeQuery = true)
-    Long findPostiInSalaById(@Param("id") Long id);
-
 
 
 }

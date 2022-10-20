@@ -1,47 +1,51 @@
 package com.example.prova.controller;
 
+import com.example.prova.data.dto.BigliettoDto;
 import com.example.prova.data.dto.CinemaDto;
 import com.example.prova.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/cinema")
-@ResponseStatus(HttpStatus.CREATED)
+
 public class CinemaController {
     @Autowired
     CinemaService cinemaService;
 
-    @GetMapping("/v1")
-    public List<CinemaDto> getAll(){
-        return cinemaService.getAll();
+    @GetMapping
+    public ResponseEntity<List<CinemaDto>> getAll(){
+        List<CinemaDto> cinemaToReturn = new ArrayList<>(cinemaService.getAll());
+        return new ResponseEntity<>(cinemaToReturn, HttpStatus.OK);
     }
 
-    @GetMapping("/v1/{id}")
-    public CinemaDto getById(@PathVariable("id") Long id) {
-        return cinemaService.get(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<CinemaDto> getById(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(cinemaService.get(id), HttpStatus.OK);
     }
-    @DeleteMapping("/v1/{id}")
-    public Boolean delete(@PathVariable("id") Long id) {
-        return cinemaService.delete(id);
+    @DeleteMapping("{id}")
+    public ResponseEntity<Boolean> deleteById(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(cinemaService.delete(id), HttpStatus.ACCEPTED);
     }
 
     @PutMapping
-    public CinemaDto update(@RequestBody CinemaDto CinemaDto) {
-        return cinemaService.update(CinemaDto);
+    public ResponseEntity<CinemaDto> update(@RequestBody CinemaDto CinemaDto) {
+        return new ResponseEntity<>(cinemaService.update(CinemaDto), HttpStatus.OK);
     }
 
-    @PatchMapping("/v1")
-    public CinemaDto patch(@RequestBody CinemaDto CinemaDto) {
-        return cinemaService.update(CinemaDto);
+    @PatchMapping
+    public  ResponseEntity<CinemaDto> patch(@RequestBody CinemaDto CinemaDto) {
+        return new ResponseEntity<>(cinemaService.update(CinemaDto), HttpStatus.OK);
     }
 
-    @PostMapping("/v1")
-    public CinemaDto insert(@RequestBody CinemaDto CinemaDto) {
-        return cinemaService.insert(CinemaDto);
+    @PostMapping
+    public ResponseEntity<CinemaDto>  insert(@RequestBody CinemaDto CinemaDto) {
+        return new ResponseEntity<>(cinemaService.insert(CinemaDto), HttpStatus.ACCEPTED);
     }
     
 }
