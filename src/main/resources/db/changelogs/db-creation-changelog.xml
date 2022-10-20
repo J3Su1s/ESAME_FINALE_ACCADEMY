@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="2022-10-20-01" author="jesus_valenti">
+        <createTable tableName="biglietto">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_biglietto"/>
+            </column>
+            <column name="posto_assegnato" type="VARCHAR(255)"/>
+            <column name="prezzo" type="DOUBLE"/>
+            <column name="cancellato" type="BOOLEAN"/>
+            <column name="intestatario_id" type="BIGINT"/>
+            <column name="proiezione_prenotata_id" type="BIGINT"/>
+            <column name="sala_id" type="BIGINT"/>
+            <column name="film_id" type="BIGINT"/>
+            <column name="spettatore_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2022-10-20-02" author="jesus_valenti">
+        <createTable tableName="cinema">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_cinema"/>
+            </column>
+            <column name="nome" type="VARCHAR(255)"/>
+            <column name="cancellato" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2022-10-20-03" author="jesus_valenti">
+        <createTable tableName="film">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_film"/>
+            </column>
+            <column name="titolo" type="VARCHAR(255)"/>
+            <column name="regista" type="VARCHAR(255)"/>
+            <column name="produzione" type="VARCHAR(255)"/>
+            <column name="genere" type="INT"/>
+            <column name="durata" type="BIGINT"/>
+            <column name="età" type="BIGINT"/>
+            <column name="sala_id" type="BIGINT"/>
+            <column name="cancellato" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2022-10-20-04" author="jesus_valenti">
+        <createTable tableName="film_sala">
+            <column name="p_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_film_sala"/>
+            </column>
+            <column name="s_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_film_sala"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2022-10-20-05" author="jesus_valenti">
+        <createTable tableName="sala">
+            <column autoIncrement="true" name="sala_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_sala"/>
+            </column>
+            <column name="nome_sala" type="VARCHAR(255)"/>
+            <column name="posti" type="BIGINT"/>
+            <column name="posti_prenotati" type="BIGINT"/>
+            <column name="cancellato" type="BOOLEAN"/>
+            <column name="cinema_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2022-10-20-06" author="jesus_valenti">
+        <createTable tableName="spettatore">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_spettatore"/>
+            </column>
+            <column name="nome" type="VARCHAR(255)"/>
+            <column name="nascita" type="DATETIME"/>
+            <column name="deleted" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2022-10-20-07" author="jesus_valenti">
+        <addForeignKeyConstraint baseColumnNames="film_id" baseTableName="biglietto"
+                                 constraintName="FK_BIGLIETTO_ON_FILMID" referencedColumnNames="id"
+                                 referencedTableName="film"/>
+    </changeSet>
+    <changeSet id="2022-10-20-08" author="jesus_valenti">
+        <addForeignKeyConstraint baseColumnNames="sala_id" baseTableName="biglietto"
+                                 constraintName="FK_BIGLIETTO_ON_SALA" referencedColumnNames="sala_id"
+                                 referencedTableName="sala"/>
+    </changeSet>
+    <changeSet id="2022-10-20-09" author="jesus_valenti">
+        <addForeignKeyConstraint baseColumnNames="spettatore_id" baseTableName="biglietto"
+                                 constraintName="FK_BIGLIETTO_ON_SPETTATORE" referencedColumnNames="id"
+                                 referencedTableName="spettatore"/>
+    </changeSet>
+    <changeSet id="2022-10-20-10" author="jesus_valenti">
+        <addForeignKeyConstraint baseColumnNames="cinema_id" baseTableName="sala" constraintName="FK_SALA_ON_CINEMA"
+                                 referencedColumnNames="id" referencedTableName="cinema"/>
+    </changeSet>
+    <changeSet id="2022-10-20-11" author="jesus_valenti">
+        <addForeignKeyConstraint baseColumnNames="p_id" baseTableName="film_sala" constraintName="fk_film_sala_on_film"
+                                 referencedColumnNames="id" referencedTableName="film"/>
+    </changeSet>
+    <changeSet id="2022-10-20-12" author="jesus_valenti">
+        <addForeignKeyConstraint baseColumnNames="s_id" baseTableName="film_sala" constraintName="fk_film_sala_on_sala"
+                                 referencedColumnNames="sala_id" referencedTableName="sala"/>
+    </changeSet>
+
+</databaseChangeLog>

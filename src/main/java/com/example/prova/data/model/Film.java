@@ -20,7 +20,7 @@ import java.util.Set;
 @Getter
 @Builder
 @Entity
-@Table(name = "proiezione")
+@Table(name = "film")
 @SQLDelete(sql = "UPDATE proiezione p SET p.cancellato = true WHERE p.id=?")
 @Where(clause = "cancellato=false")
 public class Film implements Model {
