@@ -43,7 +43,7 @@ public class CinemaController {
         return new ResponseEntity<>(cinemaService.update(CinemaDto), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping(path = "/insert", consumes = "application/json", produces = "application/json")
     public ResponseEntity<CinemaDto>  insert(@RequestBody CinemaDto CinemaDto) {
         return new ResponseEntity<>(cinemaService.insert(CinemaDto), HttpStatus.ACCEPTED);
     }

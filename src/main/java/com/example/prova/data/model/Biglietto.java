@@ -49,7 +49,7 @@ public class Biglietto implements Model {
     @Column(name = "sala_id", insertable = false, updatable = false)
     private Long salaId;
 
-    // relazione con proiezione
+    // relazione con film
     @OneToOne
     @JoinColumn(name = "filmId")
     private Film film;

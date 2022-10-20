@@ -74,7 +74,7 @@ public class BigliettoController {
         return new ResponseEntity<>(bigliettoService.update(bigliettoDto), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping(path = "/insert", consumes = "application/json", produces = "application/json")
     public ResponseEntity<BigliettoDto> insert(@RequestBody BigliettoDto bigliettoDto) {
         Spettatore acquirente = spettatoreService.get(Util.toLong(bigliettoDto.getIntestatarioId())).toModel();
         Film film = filmService.get(Util.toLong(bigliettoDto.getFilmId())).toModel();

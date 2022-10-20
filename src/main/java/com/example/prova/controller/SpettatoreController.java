@@ -15,16 +15,16 @@ public class SpettatoreController {
     @Autowired
     SpettatoreService spettatoreService;
 
-    @GetMapping("/v1")
+    @GetMapping
     public List<SpettatoreDto> getAll(){
         return spettatoreService.getAll();
     }
 
-    @GetMapping("/v1/{id}")
+    @GetMapping("/{id}")
     public SpettatoreDto getById(@PathVariable("id") Long id) {
         return spettatoreService.get(id);
     }
-    @DeleteMapping("/v1/{id}")
+    @DeleteMapping("/{id}")
     public Boolean delete(@PathVariable("id") Long id) {
         return spettatoreService.delete(id);
     }
@@ -34,12 +34,12 @@ public class SpettatoreController {
         return spettatoreService.update(SpettatoreDto);
     }
 
-    @PatchMapping("/v1")
+    @PatchMapping
     public SpettatoreDto patch(@RequestBody SpettatoreDto spettatoreDto) {
         return spettatoreService.update(spettatoreDto);
     }
 
-    @PostMapping("/v1")
+    @PostMapping(path = "/insert", consumes = "application/json", produces = "application/json")
     public SpettatoreDto insert(@RequestBody SpettatoreDto spettatoreDto) {
         return spettatoreService.insert(spettatoreDto);
     }

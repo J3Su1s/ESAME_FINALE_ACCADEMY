@@ -55,7 +55,7 @@ public class FilmController {
         return filmService.update(filmDto);
     }
 
-    @PostMapping
+    @PostMapping(path = "/insert", consumes = "application/json", produces = "application/json")
     public FilmDto insert(@RequestBody FilmDto filmDto) {
         return filmService.insert(filmDto);
     }

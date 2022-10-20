@@ -51,7 +51,7 @@ public class SalaController {
         return salaService.update(salaDto);
     }
 
-    @PostMapping
+    @PostMapping(path = "/insert", consumes = "application/json", produces = "application/json")
     public SalaDto insert(@RequestBody SalaDto salaDto) {
         return salaService.insert(salaDto);
     }
