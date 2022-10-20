@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "1d696611-18a5-4502-b276-da7abed71625",
+		"name": "EURIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22613728"
+	},
+	"item": [
+		{
+			"name": "BIGLIETTO",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY_ID Copy",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/63314dbf5ec0c1031d954237",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"63314dbf5ec0c1031d954237"
+							],
+							"query": [
+								{
+									"key": "idUser",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SPETTATORE",
+			"item": [
+				{
+					"name": "POST SPETTATORE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"nome\":\"Pluto\",\"nascita\":\"1995-12-19T08:00:30Z\",\"deleted\":\"0\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/spettatore/insert",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"spettatore",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CINEMA",
+			"item": [
+				{
+					"name": "POST CINEMA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"nome\":\"Pluto\",\"nascita\":\"1995-12-19T08:00:30Z\",\"deleted\":\"0\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/spettatore/insert",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"spettatore",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:8080"
+		}
+	]
+}
