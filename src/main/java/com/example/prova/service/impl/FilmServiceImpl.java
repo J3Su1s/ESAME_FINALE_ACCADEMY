@@ -25,7 +25,7 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public FilmDto get(Long id) {
         Optional<Film> film = filmRepository.findById(id);
-        return film.isPresent() ? film.get().toDto() : null;
+        return film.map(Film::toDto).orElse(null);
     }
 
     @Override

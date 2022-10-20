@@ -41,7 +41,7 @@
             <column name="produzione" type="VARCHAR(255)"/>
             <column name="genere" type="INT"/>
             <column name="durata" type="BIGINT"/>
-            <column name="età" type="BIGINT"/>
+            <column name="eta" type="BIGINT"/>
             <column name="sala_id" type="BIGINT"/>
             <column name="cancellato" type="BOOLEAN"/>
         </createTable>

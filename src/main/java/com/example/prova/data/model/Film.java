@@ -45,8 +45,8 @@ public class Film implements Model {
     @Column(name = "durata")
     private Long durata;
 
-    @Column(name = "età")
-    private Long etàMinima;
+    @Column(name = "eta")
+    private Long etaMinima;
 
     //Inserisco proprietà salaID nei film, così quando viene venduto il biglietto posso controllare se la sala
     //è piena e lanciare un eccezione posti esauriti.
@@ -78,7 +78,7 @@ public class Film implements Model {
                 .genere(Util.getGenere(genere))
                 .casaProduttrice(casaProduttrice)
                 .durata(String.valueOf(durata))
-                .etàMinima(String.valueOf(etàMinima))
+                .etaMinima(String.valueOf(etaMinima))
                 .salaId(String.valueOf(salaId))
                 .build();
     }

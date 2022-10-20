@@ -14,7 +14,7 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
     public List<Film> findFilmByGenere(@Param("genere") String genere);
     public List<Film> findFilmByCasaProduttrice(@Param("casaProduttrice") Long casaProduttrice);
     public List<Film> findFilmByRegista(@Param("regista") String regista);
-    public List<Film> findFilmByEtàMinima(@Param("etàMinima") Long etàMinima);
+    public List<Film> findFilmByEtaMinima(@Param("etaMinima") Long etaMinima);
 
 
     @Query(value = "select film.genere, count(*) * 100.0 / sum(count(*)) over() " +

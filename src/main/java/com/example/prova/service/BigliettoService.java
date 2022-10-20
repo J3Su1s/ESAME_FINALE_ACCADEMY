@@ -13,6 +13,8 @@ public interface BigliettoService {
     public BigliettoDto update(BigliettoDto bigliettoDto);
     public Boolean delete(Long id);
 
+    public Boolean deleteAll();
+
     public Long salaPostiPrenotati(Long id);
     public Long salaPostiDisponibili(Long id);
 }

@@ -28,7 +28,7 @@ public class FilmDto implements Dto {
 
     private String durata;
 
-    private String etàMinima;
+    private String etaMinima;
 
     private String cancellato;
 
@@ -47,7 +47,7 @@ public class FilmDto implements Dto {
                 .regista(regista)
                 .casaProduttrice(casaProduttrice)
                 .durata(Util.toLong(durata))
-                .etàMinima(Util.toLong(etàMinima))
+                .etaMinima(Util.toLong(etaMinima))
                 .salaId(Util.toLong(salaId))
                 .cancellato(Boolean.valueOf(cancellato))
                 .build();

@@ -26,7 +26,7 @@ public class CinemaServiceImpl implements CinemaService {
     @Override
     public CinemaDto get(Long id) {
         Optional<Cinema> cinema = cinemaRepository.findById(id);
-        return cinema.isPresent() ? cinema.get().toDto() : null;
+        return cinema.map(Cinema::toDto).orElse(null);
     }
 
     @Override

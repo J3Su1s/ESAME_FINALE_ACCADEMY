@@ -25,7 +25,7 @@ public class BigliettoServiceImpl implements BigliettoService {
     @Override
     public BigliettoDto get(Long id) {
         Optional<Biglietto> biglietto = bigliettoRepository.findById(id);
-        return biglietto.isPresent() ? biglietto.get().toDto() : null;
+        return biglietto.map(Biglietto::toDto).orElse(null);
     }
 
     @Override
@@ -47,7 +47,11 @@ public class BigliettoServiceImpl implements BigliettoService {
         bigliettoRepository.deleteById(id);
         return bigliettoRepository.findById(id).isEmpty();
     }
-
+    @Override
+    public Boolean deleteAll() {
+        bigliettoRepository.deleteAll();
+        return Boolean.TRUE;
+    }
     @Override
     public Long salaPostiPrenotati(Long id) {
         return bigliettoRepository.findPostiPrenotatiSalaById(id);
