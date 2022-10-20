@@ -17,19 +17,19 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
     public List<Film> findFilmByEtàMinima(@Param("etàMinima") Long etàMinima);
 
 
-    @Query(value = "select proiezione.genere, count(*) * 100.0 / sum(count(*)) over() " +
-            "from proiezione " +
-            "group by proiezione.genere ", nativeQuery = true)
+    @Query(value = "select film.genere, count(*) * 100.0 / sum(count(*)) over() " +
+            "from film " +
+            "group by film.genere ", nativeQuery = true)
     List<Double> calcolaPercentualeAffluenzaPerGenere();
 
-    @Query(value = "select proiezione.titolo from proiezione " +
-            "join biglietto b on proiezione.id = b.proiezione_id " +
+    @Query(value = "select film.titolo from film " +
+            "join biglietto b on film.id = b.film_id " +
             "order by titolo asc " +
             "limit 1 ", nativeQuery = true)
     String calcolaTitoloConMaggiorBigliettiVenduti();
 
-    @Query(value = "select proiezione.titolo from proiezione " +
-            "join biglietto b on proiezione.id = b.proiezione_id " +
+    @Query(value = "select film.titolo from film " +
+            "join biglietto b on film.id = b.film_id " +
             "order by titolo desc " +
             "limit 1 ", nativeQuery = true)
     String calcolaTitoloConMinorBigliettiVenduti();
